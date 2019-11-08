@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css属性继承</title>
+</head>
+
+<body>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ccc;
+        }
+
+        div {
+            font: 700 40px '微软雅黑';
+            color: #ccc;
+            /* font包含字体粗细，字体大小，是字体类型 */
+        }
+
+        .in {
+            text-shadow: 1px 1px 1px #000,
+                -1px -1px 1px #fff;
+        }
+
+        div:last-child {
+            text-shadow: -1px -1px 1px #000,
+                1px 1px 1px #fff;
+        }
+    </style>
+
+    <div class="in">
+        在body设置字号。颜色，行高，字体，能够继承下去
+    </div>
+    <div>
+        但是边框，边距（内外），背景，定位，元素高，等属性
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>清除浮动</title>
+</head>
+
+<body>
+    <style>
+        .box {
+            border: 1px solid #cccccc;
+            /* 父元素不给高度。让子元素自动撑开父元素 */
+            /* 但是当子元素浮动就需要清除浮动防止下面元素顶上来 */
+            /* overflow: hidden; */
+        }
+
+        .damao {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            float: left;
+        }
+
+        .ermao {
+            height: 200px;
+            width: 200px;
+            background-color: black;
+            float: left;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .box4 {
+            height: 300px;
+            width: 500px;
+            background-color: cyan;
+        }
+
+        .div {
+            height: 200px;
+            color: red;
+        }
+
+        /* .clearFix:after { */
+        /* content: "."; */
+        /* 尽量不要为空，低版本浏览器会显示有空隙。填充一个小点。给他高度为0即可 */
+        /* display: block;
+            height: 0;
+            visibility: hidden; */
+        /* 隐藏盒子 */
+        /* clear: both; */
+        /* } */
+        .clearFix:before,
+        .clearFix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .clearFix {
+            *zoom: 1;
+            /* ie6 7 8能识别的属性。用于清除浮动 */
+        }
+    </style>
+    <div class='div'>
+        清除浮动的方法：</br>
+        （1）父元素添加overflow:auto hidden scroll 缺点溢出数据会隐藏</br>
+        （2）添加标签法：在浮动的子元素后面加个标签，给这个标签添加clear ：both属性,缺点需要加多个标签</br>
+        （3）添加伪元素：父元素元素加个标签，给这个标签添加:after属性</br>
+        （3）添加伪元素：父元素元素加个类名，给这个标签添加:after :before属性</br>
+    </div>
+    <div class="box clearFix">
+        <div class="damao"></div>
+        <div class="ermao"></div>
+        <!-- <div class="clear"></div> -->
+    </div>
+    <div class="box4">
+    </div>
+</body>
+
+</html>

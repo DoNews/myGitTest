@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文字阴影</title>
+</head>
+
+<body>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ccc;
+        }
+
+        div {
+            font: 700 80px '微软雅黑';
+            color: #ccc;
+            /* font包含字体粗细，字体大小，是字体类型 */
+        }
+
+        .in {
+            text-shadow: 1px 1px 1px #000,
+                -1px -1px 1px #fff;
+        }
+
+        div:last-child {
+            text-shadow: -1px -1px 1px #000,
+                1px 1px 1px #fff;
+        }
+    </style>
+
+    <div class="in">
+        我是凸起的文字效果
+    </div>
+    <div>
+        我是凹陷的文字效果
+    </div>
+</body>
+
+</html>
