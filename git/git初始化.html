@@ -8,6 +8,11 @@
 </head>
 
 <body>
+    <style>
+        div {
+            font-weight: bold
+        }
+    </style>
     <h3>首先根据自己电脑的版本下载git安装</h3>
     <h3>1:git init</h3>
     <div>
@@ -47,10 +52,19 @@
     </div>
     <h3>6:添加分支 切换分支 合并分支</h3>
     <div>
-        1：git branch dev 就是创建一个dev分支<br>
+        1：git branch dev 就是创建一个dev分支,刚创建时dev分支的内容和master分支是一样的<br>
         2：git branch就是查看所有分支， 绿色样式的分支代表我们所处的分支<br>
         3：git checkout dev 就是切换对应分支<br>
-        <img src="../img/branch.png" alt="">
+        <img src="../img/branch.png" alt=""><br>
+        4：在dev分支修改内容。，提交到本地仓库<br>
+        <img src="../img/branch2.png" alt=""><br>
+        5：在dev分支修改内容。合并到master分支 ,git merge 加分支名字，就是把当前分支与后面指定的分支合并<br>
+        <img src="../img/merge.png" alt=""><br>
+    </div>
+    <h3>7:git branch -d 加分支名字 </h3>
+    <div>
+        1：删除分支。当前分支下不能删除当前分支<br>
+        2：推送本地内容到远程仓库 git push origin master 将本地文件推送到远程分支master<br>
     </div>
     <h3>5:git pull git push</h3>
     <div>
