@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,10 +16,46 @@
     <img src="../img/git1.png" alt="">
     <h3>2:git config</h3>
     <div>
-        配置上传项目的用户名和密码</br>
-        git config --global user.name "861988926@qq.com"</br>
-        git config --global user.email "861988926@qq.com"</br>
+        配置上传项目的用户名和密码<br>
+        git config --global user.name "861988926@qq.com"<br>
+        git config --global user.email "861988926@qq.com"<br>
         <img src="../img/git2.png" alt="">
+    </div>
+    <h3>3:git add . git commit -m ""</h3>
+    <div>
+        上传文件<br>
+        1：首先将文件提交到本地仓库。git add . 这个命令是上传所有的本地修改文件到本地仓库<br>
+        2：然后提交我们的说明内容。 git commit -m "说明内容" 填写提交内容<br>
+        直接git commit命令会进入vi编辑器模式。点击英文i会进入编辑模式。可以在vi编辑器下编写文字，编写完毕之后按esc键推出编辑模式。然后输入英文：冒号。输入q 也就是quit退出编辑模式<br>
+        <img src="../img/git3.png" alt=""><br>
+    </div>
+    <h3>4:git status git log</h3>
+    <div>
+        1：git status 可以查看提交状态*（此操作不必要）<br>
+        2: git log可以查看提交日志记录<br>
+        <img src="../img/gitlog.png" alt=""><br>
+        3: git log可以查看提交日志记录和版本号<br>
+        <img src="../img/gitlogin.png" alt=""><br>
+        3: git reflog可以查看全部提交日志记录和版本切换日志<br>
+        <img src="../img/gitreflog.png" alt=""><br>
+    </div>
+    <h3>5:git reset --hard Head~0或者 git reset --hard Head~1</h3>
+    <div>
+        1：git reset --hard Head~0和git reset --hard Head~1 回到上一次版本状态或者上上次版本状态<br>
+        2：git reset --hard +版本号回到指定版本<br>
+        <img src="../img/gitreset.png" alt=""><br>
+    </div>
+    <h3>6:添加分支 切换分支 合并分支</h3>
+    <div>
+        1：git branch dev 就是创建一个dev分支<br>
+        2：git branch就是查看所有分支， 绿色样式的分支代表我们所处的分支<br>
+        3：git checkout dev 就是切换对应分支<br>
+        <img src="../img/branch.png" alt="">
+    </div>
+    <h3>5:git pull git push</h3>
+    <div>
+        1：在拉去我们远程仓库（防止和本地有冲突） git pull origin master 从远程分支上拉去项目 （此处分支为master）<br>
+        2：推送本地内容到远程仓库 git push origin master 将本地文件推送到远程分支master<br>
     </div>
     <h3>1:git init</h3>
     <h3>1:git init</h3>
@@ -33,9 +68,8 @@
     <h3>1:git init</h3>
     <h3>1:git init</h3>
     <h3>1:git init</h3>
-    <h3>1:git init</h3>
-    <h3>1:git init</h3>
-    <h3>1:git init</h3>
+
+
 </body>
 
 </html>
