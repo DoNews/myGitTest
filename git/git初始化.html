@@ -79,17 +79,23 @@
         <p style="color: red;"> 3：建议大家在提交master分支之前先使用 git pull origin master 拉去一下远程分支。防止有冲突<br>
         </p>
     </div>
-    <h3>10:git init</h3>
+    <h3>10：使用ssh方式管理代码。</h3>
+    <div>
+        1：使用命令在桌面给这个电脑生成一个自己的公钥和私钥`ssh-keygen -t rsa -C "861988926@qq.com"`<br>
+        <img src="../img/gitssh.png" alt=""><br>
+        2：在我们的github配置上加上私钥，以后这个私钥的电脑就能上传代码了。<br>
+        <p style="color: red;"> 3：公司级别的代码一般权限有专员控制，所以我们只要会提交，拉去代码 查看日志，提交记录和合并冲突就行了<br>
+        </p>
+        3：添加ssh<br>
+        <img src="../img/ssh1.png" alt=""><br>
+        <img src="../img/ssh2.png" alt=""><br>
+        4：推送代码<br>
+        git add .<br>
+        git commit -m '注释'<br>
+        git push ssh地址<br>
+        <!-- ssh-keygen -t rsa -C "861988926" -->
+    </div>
     <h3>1:git init</h3>
-    <h3>1:git init</h3>
-    <h3>1:git init</h3>
-    <h3>1:git init</h3>
-    <h3>1:git init</h3>
-    <h3>1:git init</h3>
-    <h3>1:git init</h3>
-    <h3>1:git init</h3>
-    <h3>1:git init</h3>
-
 
 </body>
 
