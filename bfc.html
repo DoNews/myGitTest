@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BFC</title>
+</head>
+
+<body>
+  <style>
+
+  </style>
+  <div class="box">
+    <h2>首先display:blcok list-item table 这三个属性是形成BFC的基础。具有这些情况的的时候</h2>
+    <h3>1:当float属性不为none的时候 2 ：position :absolute或者fixed. 3:display:flex inline-block table-cell
+      table-captioninline-flex,4:overflow:visible </h3>
+    <h3>清除浮动可以将盒子容器变为BFC容器就能清除浮动</h3>
+    <h3>同一个BFC的区域的子元素的margin会重叠。解决办法，将其中的子元素使用BFC的特性隔离开</h3>
+    <h3>BFC区域的盒子不会和float属性的东西产生影响</h3>
+  </div>
+</body>
+
+</html>

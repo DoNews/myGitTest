@@ -72,7 +72,9 @@
         （1）父元素添加overflow:auto hidden scroll 缺点溢出数据会隐藏</br>
         （2）添加标签法：在浮动的子元素后面加个标签，给这个标签添加clear ：both属性,缺点需要加多个标签</br>
         （3）添加伪元素：父元素元素加个标签，给这个标签添加:after属性</br>
-        （3）添加伪元素：父元素元素加个类名，给这个标签添加:after :before属性</br>
+        （3）添加伪元素：父元素元素加个类名，给这个标签添加:after :before属性 参数content: "";
+        display: table;
+        clear: both;</br>
     </div>
     <div class="box clearFix">
         <div class="damao"></div>

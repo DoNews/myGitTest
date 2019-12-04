@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>过渡动画</title>
+</head>
+
+<body>
+  <div class="bix"></div>
+</body>
+<style>
+  .bix {
+    width: 200px;
+    background-color: pink;
+    height: 200px;
+    /* transtion 参数 动画名称 all代表全部 width 表示宽度变化时展示动画 transform 反转 第二个参数 ： 2s 第三个参数动画效果 参数（lenaer）1.ease(默认值):先快再快再慢
+
+        2.ease-in:淡入(动画刚开始的时候变化慢)
+
+        3,ease-out:淡出(动画快结束的时候变化慢)
+
+        4.ease-in-out:淡入淡出
+
+        5.linear:匀速变化
+
+        6.cubic-bezier:贝塞尔曲线,所有的变化都可以用贝塞 尔曲线来代替 cubic-bezier(x1,y1,x2,y2),x1,y1,x2,y2值的范围都是0~1*/
+    transition: all 2s ease-out;
+  }
+
+  .bix:hover {
+    width: 800px;
+
+  }
+</style>
+
+</html>

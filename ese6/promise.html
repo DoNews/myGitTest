@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>promise</title>
+</head>
+
+<body>
+  <h2>promise</h2>
+  <script>
+    let checkIn = function () {
+      new Promise(function (resolve, reject) {
+        let flag = document.cookie.indexOf('userId') > -1 ? true : false
+        if (true) {
+          resolve({
+            state: 200,
+            result: true
+          })
+        } else {
+          resolve({
+            state: 500,
+            result: true
+          })
+        }
+      })
+    };
+    checkIn().then(function (res) {
+      alert(res)
+    }).catch(function (err) {
+      console.log(err)
+    })
+  </script>
+</body>
+
+</html>
