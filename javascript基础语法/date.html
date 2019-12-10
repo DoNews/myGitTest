@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Date</title>
+</head>
+
+<body>
+  <h2>Date</h2>
+  <div class="body">
+  </div>
+  <img src="../img/date.png" alt="">
+  <h3>计算时间差</h3>
+  <p>距离2020年春节还有 {{ <span class="time"></span> }}</p>
+  <img src="../img/date2.png" alt="">
+  <script>
+    function getDates() {
+      var d = new Date()
+      // 
+      if (!(d instanceof Date)) {
+        alert('不是时间对象')
+        return
+      }
+      // getTime和valueOf方法都是获取当前日期所在的毫秒数
+      var year = d.getFullYear()
+      var mounth = (d.getMonth() + 1) >= 10 ? (d.getMonth() + 1) : '0' + (d.getMonth() + 1)
+      var date = d.getDate() >= 10 ? d.getDate() : '0' + d.getDate()
+      var hour = d.getHours() >= 10 ? d.getHours() : '0' + d.getHours()
+      var minute = d.getMinutes() >= 10 ? d.getMinutes() : '0' + d.getMinutes()
+      var second = d.getSeconds() >= 10 ? d.getSeconds() : '0' + d.getSeconds()
+      return year + '年-' + mounth + '月-' + date + '日-' + hour + '时-' + minute + '分-' + second + '秒'
+    }
+    setInterval(() => {
+      document.querySelector("body > div").innerHTML = getDates()
+    }, 1000)
+    // 获取时间差
+
+    function getTimeEnd(start, end) {
+      // end 可取 new Date（）
+      // 参数start 和 end 是毫秒数
+      var end = new Date(2020, 1, 24)
+      var start = new Date()
+      var d = end - start
+      // getTime和valueOf方法都是获取当前日期所在的毫秒数
+      // console.log(d);
+      d /= 1000 //获取到秒数
+      var day = Math.round(d / 60 / 60 / 24),
+        hour = Math.round(d / 60 / 60 % 24), // %是取余数
+        minute = Math.round(d / 60 % 60),
+        seconds = Math.round(d % 60)
+      // console.log(day, hour, minute, seconds);
+      return day + '天-' + hour + '时-' + minute + '分-' + seconds + '秒'
+    }
+    setInterval(() => {
+      document.querySelector(".time").innerHTML = getTimeEnd()
+    }, 1000)
+  </script>
+</body>
+
+</html>

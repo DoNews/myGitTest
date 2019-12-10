@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>对象</title>
+</head>
+
+<body>
+  <h2>对象声明的三种方式</h2>
+  <img src="../img/obj.png" alt="">
+  <img src="../img/obj1.png" alt="">
+  <script>
+    // 对象声明方式
+    // 1 字面量声明
+    var myData = {
+      name: '张云鹏',
+      age: 27,
+      sex: '男',
+      height: 178,
+      hello: function () {
+        console.log(this.name + '欢迎你登录')
+      },
+      height: function () {
+        console.log(this.height + '哇哦，你又长高了啊')
+      }
+    }
+    myData.height()
+    // 2Object是一个构造函数 、使用new来调用构造函数
+    var aaa = new Object()
+    // 添加属性
+    aaa.name = '455'
+    //添加方法
+    aaa.alert = function () {
+      alert(this.name)
+    }
+    console.log(aaa)
+
+    //3工厂函数
+
+    function addHero(can1, can1, can1, can1, can1, can1) {
+      var hero = new Object(); //生成提个对象
+      hero.name = can1; //属性赋值
+      hero.age = can2;
+      hero.back = function () { //方法
+        alert(can2)
+      };
+      return hero;
+    }
+    //自定义函数
+    function Hreo(can1, can2, can1, can1, can1, can1) {
+      this.name = can2;
+      this.run = function () {
+        alert(can1)
+      }
+    }
+    var huangzhont = new Hreo('huangz', '窝火刷')
+    console.log(huangzhont)
+  </script>
+</body>
+
+</html>

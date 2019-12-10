@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2>vue官网<a href="https://cn.vuejs.org/v2/guide/installation.html" target="_blank">VUE官网</a></h2>
+    <button @click='change(1)'>登录</button>
+    <button @click='change(2)'>注册</button>
+    <transition name="fade">
+      <div class="regester " v-if="!show">
+        <div>账号：<input type="text"></div>
+        <div>密码：<input type="text"></div>
+        <div>再次输入密码：<input type="text"></div>
+      </div>
+    </transition>
+    <transition name="fade">
+      <div class="login " v-if="show">
+        <div>账号：<input type="text"></div>
+        <div>密码：<input type="text"></div>
+      </div>
+    </transition>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        show: true
+      },
+      created: function () {
+        // `this` 指向 vm 实例
+        console.log('a is: ' + this.a)
+      },
+      methods: {
+        change(num) {
+          if (num == 1) {
+            this.show = true
+          } else {
+            this.show = false
+          }
+        }
+      }
+    })
+  </script>
+  <style>
+    .fade-enter-active,
+    .fade-leave-active {
+      transition: all 2s;
+    }
+
+    .fade-enter,
+    .fade-leave-to
+
+    /* .fade-leave-active below version 2.1.8 */
+      {
+      opacity: 0;
+    }
+
+    button {
+      height: 40px;
+      width: 120px;
+      background: cornflowerblue;
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    input {
+      height: 20px;
+      width: 120px;
+      margin: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</body>
+
+</html>

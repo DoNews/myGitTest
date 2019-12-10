@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>作用域</title>
+</head>
+
+<body>
+  <h2>作用域：变量可以使用的范围</h2>
+  <h2>局部作用域：每个函数内部都有一个局部作用域、里面声明的变量都可以成为局部变量。不实用var声明的可能会是全局变量。局部变量只能在定义该变量的函数中使用</h2>
+  <script>
+    var name = 'liming' //全局变量
+
+    function an() {
+      var name = '内部变量' //内部变量
+      ceshi = '我的内部没声明的变量' //也是全局变量。但是不符合规范
+      console.log('内部打印：' + name) //可以打印出来
+    }
+    an()
+    console.log('外部打印：' + name) //不能打印出来。但是高版本浏览器不报错。低版本浏览器报错
+    console.log('外部打印：' + ceshi) // 
+  </script>
+</body>
+
+</html>

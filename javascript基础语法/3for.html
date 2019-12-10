@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>for</title>
+</head>
+
+<body>
+  <h2>FOR循环</h2>
+  <img src="../img/for.png" alt="">
+  <img src="../img/for1.png" alt="">
+  <script>
+    var str = ''
+    for (let i = 0; i < 500; i++) {
+      if ((i % 40 > 0) && (i != 0)) {
+        str += '*'
+      } else {
+        str += '\n'
+      }
+    }
+    console.log(str)
+
+    // 九九口诀
+
+    var str1 = ''
+    for (let i = 1; i <= 9; i++) {
+      for (let j = i; j <= 9; j++) {
+        str1 += (i + '*' + j + '  ')
+      }
+      str1 += '\n'
+    }
+    console.log(str1)
+  </script>
+</body>
+
+</html>

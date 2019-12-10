@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MATH</title>
+</head>
+
+<body class="body">
+  <style>
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <h2>随机范围内的整数</h2>
+  <img src="../img/Mathmax.png" alt="">
+  <img src="../img/mathmax2.png" alt="">
+  <script>
+    // 返回两个值范围内的随机数
+    function random(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+    console.log(random(18, 20))
+    // 返回随机颜色
+    function randomColor(min, max) {
+      return `rgb(${random(min, max)}, ${random(min, max)}, ${random(min, max)},0.2)`
+    }
+    console.log(randomColor(0, 255))
+    document.getElementsByTagName('body')[0].style.backgroundColor = randomColor(0, 255)
+    // 模仿最大值 最小值的计算
+
+    console.log(Math.max(2, 55, 66, 77, 100))
+    console.log(Math.min(2, 55, 66, 77, 100))
+
+    function max() {
+      // arguments.length
+      var max = arguments[0]
+      for (let i = 0; i < arguments.length; i++) {
+        if (max < arguments[i]) {
+          max = arguments[i]
+        }
+      }
+      return max
+    }
+
+    function min() {
+      // arguments.length
+      var min = arguments[0]
+      for (let i = 0; i < arguments.length; i++) {
+        if (min > arguments[i]) {
+          min = arguments[i]
+        }
+      }
+      return min
+    }
+
+    console.log(max(11, 44, 66, 44, 22))
+    console.log(min(11, 44, 66, 44, 22))
+
+    var marX = {
+      max: function () {
+        // arguments.length
+        var max = arguments[0]
+        for (let i = 0; i < arguments.length; i++) {
+          if (max < arguments[i]) {
+            max = arguments[i]
+          }
+        }
+        return max
+      },
+      min: function () {
+        // arguments.length
+        var min = arguments[0]
+        for (let i = 0; i < arguments.length; i++) {
+          if (min > arguments[i]) {
+            min = arguments[i]
+          }
+        }
+        return min
+      }
+    }
+    console.log(marX.max(11, 44, 66, 44, 22))
+    console.log(marX.min(11, 44, 66, 44, 22))
+  </script>
+</body>
+
+</html>

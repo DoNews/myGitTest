@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数字</title>
+</head>
+
+<body>
+  <script>
+    // 斐波那契数列 1 1 2 3 5 8 13 21 34 55
+    function fb(n) {
+      var n3;
+      var n1 = 1;
+      var n2 = 1;
+      for (let i = 3; i <= n; i++) {
+        n3 = n1 + n2;
+        n1 = n2;
+        n2 = n3;
+      }
+      return n3
+    }
+    console.log(fb(8))
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>轮播图</title>
+</head>
+
+<body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .itemBox {
+      width: 1300px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .item {
+      border: 1px solid #cccccc;
+      padding: 4px;
+      position: absolute;
+      /* left: 0; */
+      width: 300px;
+
+    }
+
+    img {
+      width: 100% !important;
+    }
+  </style>
+  <!-- 
+    1:获取到itemBox的宽度
+    2：item宽度
+    3：求出列数
+    4：求出间距
+    5：实现瀑布流布局方法
+    6：滚定页面时加载数据
+   -->
+  <div class="itemBox">
+    <div class="item">
+      <img src="../img/1.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="../img/arr2.png" alt="">
+    </div>
+    <div class="item">
+      <img src="../img/arr3.png" alt="">
+    </div>
+    <div class="item">
+      <img src="../img/2.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="../img/1.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="../img/arr2.png" alt="">
+    </div>
+    <div class="item">
+      <img src="../img/arr3.png" alt="">
+    </div>
+    <div class="item">
+      <img src="../img/2.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="../img/1.jpg" alt="">
+    </div>
+    <div class="item">
+      <img src="../img/arr2.png" alt="">
+    </div>
+    <div class="item">
+      <img src="../img/arr3.png" alt="">
+    </div>
+    <div class="item">
+      <img src="../img/2.jpg" alt="">
+    </div>
+  </div>
+  <script>
+    window.onload = function () {
+      var itemBox = document.getElementsByClassName('itemBox')[0]
+      var items = document.getElementsByClassName('item')
+
+      // 1获取到itemBox的宽度
+      var itemBoxW = itemBox.offsetWidth
+
+      // 2获取到item的宽度
+      var itemW = items[0].offsetWidth
+      console.log(itemW)
+      // 3获取到列数的宽度
+      var column = parseInt(itemBoxW / itemW)
+
+      // 4求出间距
+      var distance = (itemBoxW - itemW * column) / (column - 1)
+
+      // 5实现瀑布流方法
+      var arr = []
+      waterFall()
+
+      function waterFall() {
+        for (let i = 0; i < items.length; i++) {
+          if (i < column) {
+            // 设置位置
+            items[i].style.left = (itemW + distance) * i + 'px';
+            // 获取所有图片最低的一个
+            arr[i] = items[i].offsetHeight;
+          } else {
+            var minV = getMin(arr).minV;
+            var minI = getMin(arr).minI;
+
+            items[i].style.left = (itemW + distance) * minI + 'px';
+            items[i].style.top = minV + distance + 'px';
+
+            arr[minI] = minV + distance + items[i].offsetHeight;
+          }
+        }
+      }
+      // 获取数组最小值和索引
+      function getMin(all) {
+        var obj = {};
+        obj.minV = all[0];
+        obj.minI = 0;
+        for (let i = 1; i < all.length; i++) {
+          if (obj.minV > all[i]) {
+            obj.minV = all[i]
+            obj.minI = i;
+          }
+        }
+        return obj;
+      }
+
+
+      // 6滚动页面加载数据
+
+      window.onscroll = function () {
+        if (window.pageYOffset + window.innerHeight > getMin(arr).minV) {
+          var json = [{
+              "src": '../img/3.jpg'
+            },
+            {
+              "src": '../img/7.jpg'
+            },
+            {
+              "src": '../img/jiben.png'
+            },
+            {
+              "src": '../img/arr2.png'
+            },
+            {
+              "src": '../img/arr1.png'
+            },
+            {
+              "src": '../img/git2.png'
+            },
+            {
+              "src": '../img/6.jpg'
+            }
+          ]
+          for (let i = 0; i < json.length; i++) {
+            var div = document.createElement('div')
+            div.className = 'item'
+            var img = document.createElement('img')
+            img.src = json[i].src
+            div.append(img)
+            // 追加到列表
+            itemBox.append(div)
+          }
+          waterFall()
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>预解析</title>
+</head>
+
+<body>
+  <h2>预解析</h2>
+  <img src="../img/yu1.png" alt="">
+  <img src="../img/yu2.png" alt="">
+  <img src="../img/yu3.png" alt="">
+  <script>
+    // console.log(num) //先使用num变量 undefined。视频讲的会报错。估计是老版本浏览器
+    // var num = 'num'
+    // console.log(fn) //函数声明前调用不会报错。但是这样调用会打印整个函数体。console.log(fun())才会把函数执行的内容打印出来
+    // function fn() {
+    //   console.log(111)
+    // }
+    //预解析
+    //1：变量提升：变量提升会把变量的声明提升到作用域的最顶端。不包括变量的赋值 见下文
+    //2：函数提升：函数提升会把函数的声明提升到作用域的最顶端。不包括函数的调用
+
+    // 案例1
+    // var aa = 15;
+
+    // function a1() {
+    //   var aa;
+    //   alert(aa) //弹出undifined
+    //   aa = 10
+    //   alert(aa) //获取到10
+    // }
+    // a1()
+
+    // 案例一经过预解析
+
+    // var aa; //变量声明提升。但是赋值调整到最后
+
+    // function a1() { //函数声明提升。但是函数调用没有提升，同时函数内部的变量声明也没有提升
+    //   alert(aa) //此时弹出undefined
+    //   var aa = 10
+    //   alert(aa) //此时弹出10
+    // }
+    // aa = 15; //与解析之后变量定义跑到了下面
+    // a1() //函数调用并没有提升
+
+
+    //案例二
+    // console.log(a);
+
+    // function a() {
+    //   console.log('aaaaa');
+    // }
+    // var a = 'sssss'
+    // console.log(a);
+
+    // 预解析
+    // 变量声明提升
+    // 1 : var a;
+    // 2:function a() {
+    //    console.log('aaaaa');
+    // }
+    // 预解析过程中假如函数和变量名字相同,函数优先,
+    // 3: console.log(a) //弹出function a(){console,log('aaaaa')} 此时因为函数优先所以 a 是函数.打印出来的是函数体。大家注意，不是aaaaa,打印函数和执行函数不一样
+    // 4: a = 'sssss' //这里a被重新赋值
+    // 5: console.log(a)//弹出sssss //所以重新赋值之后产生的a就是赋值后的
+
+
+    as()
+    console.log(b);
+    console.log(c);
+    console.log(a);
+
+    function as() {
+      var a = b = c = 9;
+      console.log(b);
+      console.log(c);
+      console.log(a);
+    }
+    // 预解析之后 
+    // function a() { //函数提升
+    // var a; //提升
+    // a = b=c= 9,
+    //只有a用了var声明。但是b和c是直接赋值。相当于全局变量
+    //   console.log(a); 函数内能取到 9
+    //   console.log(b);9
+    //   console.log(c);9
+    // }
+    // as()
+    // console.log(b);9
+    // console.log(c);9
+    // console.log(a);报错 ,提示未定义
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="text"><br>
+  <input type="button" id="button" value='点击给input赋值'>
+  <h2>getAttribute获取属性</h2>
+  <h2>setAttribute设置属性</h2>
+  <h2>removeAttribute删除属性 </h2>
+</body>
+<script>
+  var inputs = document.getElementsByTagName('input').getA
+  // document.getElementById('button').onclick(function () {
+  for (let i = 0; i < inputs.length; i++) {
+    input = inputs[i]
+    if (input.type == 'text') {
+      input.value = i
+    }
+  }
+
+  // })
+</script>
+
+</html>

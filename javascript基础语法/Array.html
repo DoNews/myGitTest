@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Array</title>
+</head>
+
+<body>
+  <h2>Array 属性和方法</h2>
+  <h2>栈操作</h2>
+  <img src="../img/arr1.png" alt="">
+  <h2>队列操作</h2>
+  <img src="../img/arr2.png" alt="">
+  <h2>排序</h2>
+  <img src="../img/arr3.png" alt="">
+  <h2>操作方法concat slice splice</h2>
+  <img src="../img/arr4.png" alt="">
+  <h2>获取字符串参数</h2>
+  <img src="../img/canshu.png" alt="">
+
+  <script>
+    var str = 'Array',
+      arr = [...str]
+    // toString()和valueOf()方法是对象共有的属性
+    console.log(arr) // [A,r,r,a,y]
+    console.log(arr.toString()) // A,r,r,a,y 用逗号隔开
+    console.log(arr.valueOf()) //[A,r,r,a,y]
+    // 1堆栈先进后出
+    // push pop
+    var arr1 = [1, 2, 3, 4]
+    arr1.push(5)
+    console.log('push:' + arr1) //在数组最后添加一个元素
+    arr1.pop()
+    console.log('push:' + arr1) //在数组最后删除一个元素
+    // 2 队列先进先出
+    var arr2 = [1, 2, 3, 4, 5]
+    arr2.push(6)
+    console.log('push:' + arr2) //在数组最后添加一个元素
+    arr2.shift()
+    console.log('shift:' + arr2) //在数组前面删除一个元素
+    arr2.unshift(0)
+    console.log('unshift:' + arr2) //在数组前面添加指定元素
+    // 排序方法
+
+    var arr3 = [1, 20, 55, 66, 78, 10, 110, 89, 33, 7, 8, 10]
+    console.log(arr3.reverse()) // reverse翻转
+    var arr3 = [1, 20, 55, 66, 78, 10, 110, 89, 33, 7, 8, 10]
+    console.log(arr3.sort()) // sort排序 ，但是此时的排序不是按照数值的排序，而是按照逻辑值排序 想要按数值排序需要进一步处理
+    console.log(arr3.sort(function (a, b) {
+      return a - b
+    })) // 从小到大排序
+    console.log(arr3.sort(function (a, b) {
+      return b - a
+    })) // 从大到小排序
+    var arr4 = ['sadsada', '20', 'qwwert', 'yyuiop', 'sdfgdhj', 'hjkkklll']
+    console.log(arr4.sort()) // sort字符串根据长短排序
+    console.log(arr4.sort(function (a, b) {
+      return a.length - b.length
+    })) // 从小到大排序
+    console.log(arr4.sort(function (a, b) {
+      return b.length - a.length
+    })) // 从大到小排序
+
+    // 冒泡排序
+    var mySorts = [11, 55, 66, 78, 0, 3, 45, 8, 4, 6, 7]
+
+    function mySort(arrays) {
+      //外层循环。控制趟数
+      for (let i = 0; i < arrays.length; i++) {
+        // 假如排序好了
+        var isSort = true
+        // 内置循环控制比较次数
+        for (let j = 0; j < arrays.length - i - 1; j++) {
+          if (arrays[j] > arrays[j + 1]) { //正序或者倒序排列就修改此处的大于或者小于
+            // 能进入此处循环说明没有完全排序成功。将isSort修改为false防止进入break
+            isSort = false
+            // 交换位置
+            var tep = arrays[j];
+            arrays[j] = arrays[j + 1];
+            arrays[j + 1] = tep;
+          }
+        }
+        if (isSort) {
+          return arrays
+          break
+        }
+      }
+    }
+    console.log(mySort(mySorts))
+    //操作方法
+    var num = [5, 6, 5, 66, 4, '544']
+    console.log(num.concat('concat')) //连接进来一个参数
+    console.log(num) //输出发现不影响原数组
+    console.log(num.slice(0, 5)) //输出剪切的从数组下标0开始的五位
+    console.log(num) //输出发现不影响原数组
+    console.log(num.splice(0, 2, "新增进来")) //输出剪切的从数组下标0开始的2位
+    console.log(num) //输出发现会将剪切掉的参数换成我们加的参数，没参数就是简单的吧长度减少
+    // 位置方法
+    // indexOf() lastIndexOf() 没找到参数就返回 -1
+    console.log(num.indexOf(5)) // 1 找到了
+    console.log(num.indexOf(5555)) // -1 没找到
+    // 迭代方法（不会改变原数组）
+    // every some map foreach filter
+    num.forEach(element => {
+      console.log(element)
+    });
+    // 将数组连接成一个字符串
+    console.log(num.join());
+
+
+    // 获取参数
+    function getcanshu() {
+      var url = 'http:sdasdj/asdas/?name=zhangsan&age=15&page=11&userId=888'
+      // 获取位置
+      var index = url.indexOf('?') + 1
+      // 得到参数字符串
+      var str = url.substr(index) //从字符串下标位置开始截取字符串
+      console.log(url.substr(index))
+      // 得到参数数组
+      var params = str.split('&') //split是将字符串通过特定条件分割成数组
+      var o = {}
+      console.log(params)
+      for (let i = 0; i < params.length; i++) {
+        const element = params[i];
+        var canshu = element.split('=')
+        o[canshu[0]] = canshu[1]
+      }
+      console.log(o)
+      return o
+    }
+    getcanshu()
+  </script>
+</body>
+
+</html>

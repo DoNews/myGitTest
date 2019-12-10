@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>变量</title>
+</head>
+
+<body>
+  <h2>变量</h2>
+  <h4>变量是计算机内存当中的标识符。根据变量名可以获取到变量中的数据</h4>
+  <h2>定义</h2>
+  <img src="../img/var.png" alt="">
+  <h2>Sting()</h2>
+  <img src="../img/toString.png" alt="">
+  <h2>parse</h2>
+  <img src="../img/parse.png" alt="">
+  <script>
+    var num1 = 5; //声明并赋值
+    console.log(num1);
+
+    var num2; //先声明
+    num2 = 15; //赋值也就是定义
+    console.log(num1);
+
+    var num3; //仅仅声明
+    console.log(num3) //仅仅声明未定义赋值，所以 提示undefined
+    num4 = 55 //这样也能打印出来 显示55  但是没用var let const声明
+    console.log(num4) //如果未声明也不定义直接报错num4 is not defined 直接报错
+
+    // 同时定义多个变量
+    var n1, n2, n3;
+
+    // typeof 判断数据类型
+    console.log(typeof num1)
+    var str = 'ssss';
+    console.log(typeof str)
+
+    //  数据类型转换 a.toString() String(d) number+string类型得到一个字符串 （1 + 'sdasd'） = '1sdasd'
+    /* 
+      
+     */
+    var a, b, c, d, e, f, g;
+    a = 1;
+    b = 'string';
+    c = undefined;
+    d = null;
+    e = true;
+    f = '123.acbc';
+    g = 'abc.123';
+    // 输出不同类型的数据
+    console.log(a) //数字1
+    console.log(b) //字符串string
+    console.log(c) //undefined
+    console.log(d) //
+    console.log(e) //
+    console.log(f) //
+    console.log(g) //
+    // 输出类型转换后的数据
+    console.log(a.toString()) //转换成字符串1
+    console.log(e.toString()) //转化成字符串true
+    // console.log(d.toString()) //null 和 undefined报错，因为他们没有toString方法。 是可以用String()方法
+    console.log(typeof String(d))
+    console.log(typeof String(c))
+
+    // 不同类型数据结合形成的类型
+    console.log('不同数据类型相结合')
+    console.log(typeof 1 + ' string') //不添加小括号。那就是先判断数字1，再判断字符串、所以返回两个结果 数字1 和 string
+    console.log(typeof (1 + ' string')) // 判断类型是字符串 因为判断条件是（1 + ‘string’）
+    console.log(1 + 'string') //返回字符串'1string'
+
+
+    //Number()转化成数字
+
+    console.log('Number')
+    console.log(Number('123')) //123 会转化为123
+    console.log(Number('123abc')) //NAN 包含字符串不会转化成数字。不管字符串在前还是在后 但是parseInt()区分前后位置
+    console.log(Number('abc123')) //NAN 包含字符串不会转化成数字 不管字符串在前还是在后
+    console.log(Number('abc')) //NAN 包含字符串不会转化成数字 不管字符串在前还是在后
+    console.log(Number(true)) //1 机器语言内置true = 1
+    console.log(Number(false)) //0 机器语言内置false = 0
+    console.log(Number(null)) //0 机器语言内置null = 0
+    console.log(Number(undefined)) //NAN 不识别
+
+    console.log('parseInt')
+    console.log(parseInt('123')) //123 parseInt转化成数字
+    console.log(parseInt('123sds')) //123 parseInt转化成数字
+    console.log(parseInt('sdas123')) //NAN parseInt转化成NAN字符串在前。这就是和number函数的区别、number不管数字在前在后都是NAN
+    console.log(parseInt('sds')) //NAN
+    console.log(parseInt(true)) //NAN  parseInt 不区分布尔值
+    console.log(parseInt(false)) //NAN
+    console.log(parseInt(null)) //NAN
+    console.log(parseInt(undefined)) //NAN
+
+    console.log('parseFloat')
+    console.log(parseFloat('123.123444')) //123.123444 parseFloat保留第一个小数点之后的第二个小数点或者遇到字符串的的位置停止
+    console.log(parseFloat('123.156c.acs')) //123.156
+    console.log(parseFloat('sdas123.566')) //NAN
+    console.log(parseFloat('sds')) //NAN
+    console.log(parseFloat(true)) //NAN parsefloat 不区分布尔值
+    console.log(parseInt(false)) //NAN
+    console.log(parseInt(null)) //NAN
+    console.log(parseInt(undefined)) //NAN
+  </script>
+</body>
+
+</html>

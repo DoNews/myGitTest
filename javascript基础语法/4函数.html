@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数</title>
+</head>
+
+<body>
+  <h2>函数</h2>
+  <h4>函数就是包含一段具有特定功能的代码片段。通过函数名可以重复调用这个功能</h4>、
+  <h2>函数声明用 function 函数名（参数）{ 代码片段 }</h2>
+  <h2>函数表达式用 var fn = function（参数）{ 代码片段 }</h2>
+  <img src="../img/function.png" alt="">
+  <h2>arguments类数组对象，接收存放参数</h2>
+  <img src="../img/function1.png" alt="">
+  <script>
+    function sumTotal(num) {
+      var total = 0;
+      for (let index = 0; index <= num; index++) {
+        total += index
+      }
+      return total;
+    }
+    console.log(sumTotal(100)) //调用函数，传入参数
+
+    function getMax() {
+      // arguments是一个类数组对象
+      var max = arguments[0]
+      for (let i = 0; i < arguments.length; i++) {
+        if (max < arguments[i]) {
+          max = arguments[i]
+        }
+      }
+      return max
+    }
+    console.log(getMax(1, 5, 96, 9, 8, 88, 53, 544)) //使用arguements对象之后可以传入长度的任意参数
+  </script>
+</body>
+
+</html>

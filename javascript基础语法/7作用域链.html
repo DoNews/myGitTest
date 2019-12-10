@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>作用域量</title>
+</head>
+
+<body>
+  <h2>作用域链</h2>
+  <img src="../img/line1.png" alt="">
+  <img src="../img/line2.png" alt="">
+  <script>
+    // 全局作用域
+    var num = 10; //全局变量
+
+    function f1() { //1级作用域链
+      var num = 15;
+
+      function f2() { //2级作用域链
+        console.log(num) //在f2内部找num未找到往外层找
+      }
+      f2()
+    }
+    f1()
+  </script>
+</body>
+
+</html>
