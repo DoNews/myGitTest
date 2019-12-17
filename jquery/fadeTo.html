@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    .dv {
+      /* background-color: blue; */
+      /* color: red;
+      height: 200px;
+      /* width: 200px; */
+      /* display: none; */
+    }
+  </style>
+  <button class="btn1">渐现</button>
+  <button class="btn2">渐隐</button>
+  <button class="btn3">一键控制</button>
+  <button class="btn4">透明度变化</button>
+  <div class="dv">
+    <img src="../img/hide.png" alt="">
+  </div>
+  <script src="jquery.js"></script>
+  <script>
+    $(function () {
+      $('.btn1').click(function () {
+        // show方法能够传入参数和回调函数
+        // 1参数能够是毫秒数，或者字符串 slow fast normal
+        // 2回调函数
+        // $('.dv').slideDown('slow', function () {
+        $('.dv').fadeIn(2000, function () {
+          console.log('显示完毕')
+        }) //缓慢显示
+      })
+      $('.btn2').click(function () {
+        // hide方法能够传入参数和回调函数
+        // 1参数能够是毫秒数，或者字符串
+        // 2回调函数
+        $('.dv').fadeOut(2000, function () {
+          console.log('隐藏完毕')
+        }) //缓慢隐藏
+      })
+
+      $('.btn3').click(function () {
+        $('.dv').fadeToggle(2000, function () {
+          console.log('反转状态')
+        })
+      })
+      $('.btn4').click(function () {
+        // 两个参数。第一个是时间。第二个是透明度
+        $('.dv').fadeTo(2000, 0.3)
+      })
+    })
+  </script>
+</body>
+
+</html>

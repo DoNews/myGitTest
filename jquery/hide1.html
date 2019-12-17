@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    .dv {
+      /* background-color: blue; */
+      /* color: red;
+      height: 200px;
+      width: 200px; */
+      /* display: none; */
+    }
+
+    img {
+      float: left;
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+    }
+  </style>
+  <button class="btn1">显示</button>
+  <button class="btn2">隐藏</button>
+  <div class="dv">
+    <img src="../img/1.jpg" alt="">
+    <img src="../img/2.jpg" alt="">
+    <img src="../img/3.jpg" alt="">
+    <img src="../img/4.jpg" alt="">
+  </div>
+  <script src="jquery.js"></script>
+  <script>
+    $(function () {
+      $('.btn2').click(function () {
+        $('.dv>img').last('img').hide(800, function () {
+          // 第一步执行过后。我们想要第三张和第四张也按照$(this).prev().hide()函数需要重复执行所以使用arguments.callee执行
+          $(this).prev().hide(800, arguments.callee)
+        })
+      })
+      $('.btn1').click(function () {
+        $('.dv>img').first('img').show(800, function () {
+          $(this).next().show(800, arguments.callee)
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>

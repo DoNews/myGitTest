@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    .bg {
+      background-color: palegreen;
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+  <div class="bg"></div>
+  <script src="./jquery.js"></script>
+  <script>
+    $(function () {
+      $(document).keydown(function (e) {
+        var code = e.keyCode;
+        switch (code) {
+          case 66:
+            $('.bg').css({
+              'backgroundColor': 'red'
+            });
+            break;
+          case 67:
+            $('.bg').css({
+              'backgroundColor': 'pink'
+            });
+            break;
+          case 68:
+            $('.bg').css({
+              'backgroundColor': 'green'
+            });
+            break;
+          case 69:
+            $('.bg').css({
+              'backgroundColor': 'black'
+            });
+            break;
+
+          default:
+            break;
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

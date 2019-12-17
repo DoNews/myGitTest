@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>触发事件 </title>
+</head>
+
+<body>
+  <input class="btn1" type="button" value="按钮1">
+  <input class="btn2" type="button" value="按钮2">
+  <script src="./jquery.js"></script>
+  <script>
+    $(function () {
+      $('.btn1').click(function () {
+        // $(this).css({
+        //   'backgroundColor': "red"
+        // }) //多个样式
+        $(this).css('backgroundColor', 'red') //单个样式
+      })
+      $('.btn2').click(function () {
+        // $('.btn1').click() //第一种方法
+        // $('.btn1').trigger('click') //第二种方法
+        $('.btn1').triggerHandler('click') //第三种方法里面加上事件类型名字
+
+      })
+      // 通过点击按钮二触发按钮1 的点击事件
+    })
+  </script>
+</body>
+
+</html>

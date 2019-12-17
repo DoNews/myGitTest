@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <style>
+      .left {
+        width: 300px;
+        background-color: #ccc;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      ul,
+      li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        padding: 8px 0;
+      }
+
+      li {
+        border-bottom: 1px dashed #fff;
+      }
+
+      .none {
+        display: none;
+      }
+    </style>
+    <div class="left">
+      <ul class="ulbox">
+        <li>
+          tab1
+          <ul class="none">
+            <li>tab11</li>
+            <li>tab12</li>
+            <li>tab13</li>
+          </ul>
+        </li>
+        <li>
+          tab2
+          <ul class="none">
+            <li>tab21</li>
+            <li>tab22</li>
+            <li>tab23</li>
+          </ul>
+        </li>
+        <li>
+          tab3
+          <ul class="none">
+            <li>tab31</li>
+            <li>tab32</li>
+            <li>tab33</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="./jquery.js"></script>
+  <script>
+    $(function () {
+      $('.ulbox>li').mousedown(function () {
+        // alert($(this).index())
+        $(this).children('ul').slideDown()
+        $(this).siblings().children().slideUp()
+        console.log($(this).siblings().children().slideUp())
+      })
+    })
+  </script>
+</body>
+
+</html>

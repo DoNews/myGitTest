@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    .dv {
+      /* background-color: blue; */
+      /* color: red;
+      height: 200px;
+      width: 200px; */
+      /* display: none; */
+    }
+  </style>
+  <button class="btn1">显示</button>
+  <button class="btn2">隐藏</button>
+  <button class="btn3">一键控制</button>
+  <div class="dv">
+    <img src="../img/hide.png" alt="">
+  </div>
+  <script src="jquery.js"></script>
+  <script>
+    $(function () {
+      $('.btn1').click(function () {
+        // show方法能够传入参数和回调函数
+        // 1参数能够是毫秒数，或者字符串
+        // 2回调函数
+        // $('.dv').show(1000) //一秒内显示
+        // $('.dv').show('slow') //缓慢显示
+        $('.dv').show('slow', function () {
+          console.log('显示完毕')
+        }) //缓慢显示
+        // $('.dv').show('normal') //正常显示
+        // $('.dv').show('fast') //快速显示
+      })
+      $('.btn2').click(function () {
+        // hide方法能够传入参数和回调函数
+        // 1参数能够是毫秒数，或者字符串
+        // 2回调函数
+        // $('.dv').hide(1000) //一秒内隐藏
+        // $('.dv').hide('slow') //缓慢隐藏
+        $('.dv').hide('slow', function () {
+          console.log('隐藏完毕')
+        }) //缓慢隐藏
+        // $('.dv').hide('normal') //正常隐藏
+        // $('.dv').hide('fast') //快速隐藏
+      })
+
+      $('.btn3').click(function () {
+        $('.dv').toggle('slow', function () {
+          console.log('反转状态')
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>

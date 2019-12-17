@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    .dv {
+      background-color: blue;
+      color: red;
+      height: 200px;
+      width: 200px;
+    }
+  </style>
+  <button class="btn1">动画</button>
+  <div class="dv">
+
+  </div>
+  <script src="jquery.js"></script>
+  <script>
+    $(function () {
+      $('.btn1').click(function () {
+        // 1对象。键值对 {属性：属性值}
+        // 2参数能够是毫秒数，或者字符串 slow fast normal
+        // 2匿名回调函数。回调函数
+        // $('.dv').slideDown('slow', function () {
+        $('.dv').animate({
+          'width': 700,
+          'height': 600
+        }, 1500, function () {
+          $('.dv').animate({
+            'width': 200,
+            'height': 200
+          }, 1500, function () {
+            console.log('显示完毕')
+          })
+        })
+      })
+
+    })
+  </script>
+</body>
+
+</html>

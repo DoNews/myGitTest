@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <style>
+      .wrapper {
+        display: flex;
+        flex-direction: row;
+        width: 500px;
+        margin: 0 auto;
+      }
+
+      .right>ul,
+      .left>ul {
+        flex: 1;
+        justify-content: center;
+        text-align: center;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        width: 100px;
+      }
+
+      .right>ul>li,
+      .left>ul>li {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background: #ccc;
+        width: 100%;
+        justify-content: center;
+        cursor: pointer;
+        color: #ffff;
+      }
+
+      ul,
+      li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      img {
+        float: left;
+        display: none;
+      }
+    </style>
+    <div class="left">
+      <ul>
+        <li>图片1</li>
+        <li>图片2</li>
+        <li>图片3</li>
+        <li>图片4</li>
+      </ul>
+    </div>
+    <div class="content">
+      <img src="../img/1.jpg" style="display: block;" alt="" width="200">
+      <img src="../img/2.jpg" alt="" width="200">
+      <img src="../img/3.jpg" alt="" width="200">
+      <img src="../img/4.jpg" alt="" width="200">
+      <img src="../img/5.jpg" alt="" width="200">
+      <img src="../img/6.jpg" alt="" width="200">
+      <img src="../img/7.jpg" alt="" width="200">
+      <img src="../img/8.jpg" alt="" width="200">
+    </div>
+    <div class="right">
+      <ul>
+        <li>图片5</li>
+        <li>图片6</li>
+        <li>图片7</li>
+        <li>图片8</li>
+      </ul>
+    </div>
+  </div>
+  <script src="./jquery.js"></script>
+  <script>
+    $(function () {
+      $('.left>ul>li').mouseover(function () {
+        var index = $(this).index()
+        console.log(index)
+        $(".content>img:eq(" + index + ")").show().siblings().hide()
+      })
+      $('.right>ul>li').mouseover(function () {
+        var index = $(this).index() + 4
+        console.log(index)
+        $(".content>img:eq(" + index + ")").show().siblings().hide()
+      })
+      $('li').mouseover(function () {
+        $(this).css({
+          'backgroundColor': 'red',
+          'color': '#ffff'
+        })
+      })
+      $('li').mouseout(function () {
+        $(this).css({
+          'backgroundColor': '#ccc',
+          'color': '#ffff'
+        })
+      })
+
+    })
+  </script>
+</body>
+
+</html>

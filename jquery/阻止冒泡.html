@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    .bg1 {
+      background-color: blueviolet;
+      width: 500px;
+      height: 500px;
+      cursor: pointer;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .bg2 {
+      background-color: blue;
+      width: 300px;
+      height: 300px;
+      cursor: pointer;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .bg3 {
+      background-color: red;
+      width: 150px;
+      cursor: pointer;
+      color: #ffffff;
+      height: 150px;
+      text-align: center;
+    }
+  </style>
+  <div class="bg1">1
+    <div class="bg2">2
+      <div class="bg3">3</div>
+    </div>
+  </div>
+  <script src="./jquery.js"></script>
+  <script>
+    $(function () {
+      $('.bg1').click(function () {
+        alert('bg1被点击了' + $(this).attr('class'))
+      })
+      $('.bg2').click(function (e) {
+        alert('bg2被点击了' + $(this).attr('class'));
+        // e.stopPropagation() 也能阻止事件冒泡
+        return false;
+        //retrun false 能够取消浏览器的默认事件和事件冒泡
+      })
+      $('.bg3').click(function () {
+        alert('bg3被点击了' + $(this).attr('class'))
+        return false;
+      })
+    })
+  </script>
+</body>
+
+</html>

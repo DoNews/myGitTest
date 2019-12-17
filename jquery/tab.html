@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ssss</title>
+</head>
+
+<body>
+  <div>
+    <style>
+      ul,
+      li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      li {
+        float: left;
+        width: 200px;
+        height: 50px;
+        line-height: 50px;
+        color: #ffffff;
+        background-color: #cccccc;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .active {
+        background-color: red;
+        color: #ffffff;
+      }
+
+      .con {
+        width: 800px;
+      }
+
+      .con div {
+        width: 100%;
+        float: left;
+        display: none;
+        text-align: center;
+        background-color: #cccccc;
+      }
+
+      .con div img {
+        width: 400px;
+        height: 400px;
+      }
+
+      .con div.selected {
+        display: block;
+      }
+    </style>
+    <div class="tab">
+      <ul class="tab">
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
+      <div class="con">
+        <div class="selected">
+          <img src="../img/1.jpg" alt="">
+        </div>
+        <div>
+          <img src="../img/2.jpg" alt="">
+        </div>
+        <div>
+          <img src="../img/3.jpg" alt="">
+        </div>
+        <div>
+          <img src="../img/4.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./jquery.js"></script>
+  <script>
+    $(function () {
+      $('.tab li').mouseover(function () {
+        $(this).addClass('active').siblings().removeClass('active')
+        var index = $(this).index()
+        //index()查找当前索引 ，eq查找对应索引的对象siblings()兄弟元素
+        $('.con>div:eq(' + index + ')').addClass('selected').siblings().removeClass('selected')
+      })
+
+
+    })
+  </script>
+</body>
+
+</html>

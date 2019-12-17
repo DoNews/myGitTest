@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    .dv {
+      background-color: blue;
+      height: 50px;
+      width: 50px;
+      position: relative;
+      /* animation: donghua 2s ease-in-out infinite; */
+      animation: myfirst 3s infinite;
+      -moz-animation: myfirst 3s infinite;
+      /* Firefox */
+      -webkit-animation: myfirst 3s infinite;
+      /* Safari 和 Chrome */
+      -o-animation: myfirst 3s infinite;
+      /* Opera */
+    }
+
+    @keyframes myfirst {
+
+      /* 不同周期的属性 */
+      10% {
+        background-color: green;
+        left: 50px;
+      }
+
+      30% {
+        background-color: gold;
+        left: 120px;
+      }
+
+      50% {
+        background-color: pink;
+        left: 180px;
+      }
+
+      80% {
+        background-color: rgb(175, 9, 36);
+        left: 250px;
+      }
+
+      100% {
+        background-color: rgb(98, 0, 255);
+        left: 0px;
+      }
+    }
+
+    @-o-keyframes myfirst {
+
+      /* 不同周期的属性 */
+      10% {
+        background-color: green;
+        left: 50px;
+      }
+
+      30% {
+        background-color: gold;
+        left: 120px;
+      }
+
+      50% {
+        background-color: pink;
+        left: 180px;
+      }
+
+      80% {
+        background-color: rgb(175, 9, 36);
+        left: 250px;
+      }
+
+      100% {
+        background-color: rgb(98, 0, 255);
+        left: 0px;
+      }
+    }
+
+    @-webkit-keyframes myfirst {
+
+      /* 不同周期的属性 */
+      10% {
+        background-color: green;
+        left: 50px;
+      }
+
+      30% {
+        background-color: gold;
+        left: 120px;
+      }
+
+      50% {
+        background-color: pink;
+        left: 180px;
+      }
+
+      80% {
+        background-color: rgb(175, 9, 36);
+        left: 250px;
+      }
+
+      100% {
+        background-color: rgb(98, 0, 255);
+        left: 0px;
+      }
+    }
+
+    @-moz-keyframes myfirst {
+
+      /* 不同周期的属性 */
+      10% {
+        background-color: green;
+        left: 50px;
+      }
+
+      30% {
+        background-color: gold;
+        left: 120px;
+      }
+
+      50% {
+        background-color: pink;
+        left: 180px;
+      }
+
+      80% {
+        background-color: rgb(175, 9, 36);
+        left: 250px;
+      }
+
+      100% {
+        background-color: rgb(98, 0, 255);
+        left: 0px;
+      }
+    }
+  </style>
+  <div class="dv">
+
+  </div>
+  <script src="jquery.js"></script>
+  <script>
+    $(function () {
+
+    })
+  </script>
+</body>
+
+</html>
