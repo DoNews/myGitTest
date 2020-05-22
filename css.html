@@ -1,0 +1,177 @@
+$('input[name="checkall1"]').on("click",function(){
+  checkBoxAll(1)
+  console.log(2+'监控数组总菜单')
+});
+$('input[name="checkbox1"]').change(function() {
+  let pList = [];
+  checkBox(pList,1)
+  console.log(pList.toString()+'监控数组子菜单')
+});
+$('input[name="checkall2"]').on("click",function(){
+  checkBoxAll(2)
+  console.log(2+'网格力量总菜单')
+});
+$('input[name="checkbox2"]').change(function() { 
+  let pList = [];
+  checkBox(pList,2)
+  if(pList.length==0){
+      // 清除网力量图层
+      if(wgllmarkers!=null){
+          wgllmarkers.clearLayers();
+          wgllmarkers=null;
+      };
+  }else{
+      showEveryStatus(2,pList.toString())
+  }
+  console.log(pList.toString()+'网格力量子菜单')
+});
+$('input[name="checkall3"]').on("click",function(){
+  checkBoxAll(3)
+});
+$('input[name="checkbox3"]').change(function() { 
+  let pList = [];
+  checkBox(pList,3)
+  if(pList.length==0){
+      // 清除执法力量图层
+      if(zfmarkers!=null){
+          zfmarkers.clearLayers();
+          zfmarkers=null;
+      };
+  }else{
+      showEveryStatus(3,pList.toString())
+  }
+});
+$('input[name="checkall4"]').on("click",function(){
+  checkBoxAll(4)
+});
+$('input[name="checkbox4"]').change(function() { 
+  let pList = [];
+  checkBox(pList,4)
+  if(pList.length==0){
+      // 清除全部事件图层
+      if(eventmarkers!=null){
+          eventmarkers.clearLayers();
+          eventmarkers=null;
+      };
+  }else{
+      showEveryStatus(4,pList.toString())
+  }
+});
+function checkBox(arr,ind){
+  let nameAll = 'checkall'+ind;
+  let name = 'checkbox'+ind;
+  $(`[name=${name}]`).each(function () {
+      if ($(this).is(':checked')) {
+          let i =  $(this).val()
+          arr .push(i);
+      }
+  });
+  if(arr.length == 0){
+      $(`input[name=${nameAll}]`).prop('checked',false)
+  }
+  if(arr.length == 2){
+      $(`input[name=${nameAll}]`).prop('checked',true)
+  }
+}
+function checkBoxAll(ind){
+  let name = 'checkbox'+ind;
+  let nameAll = 'checkall'+ind;
+  if($(`[name=${nameAll}]`).is(':checked')){
+      $(`[name=${name}]`).each(function(){
+          $(this).prop("checked",true);
+          if(ind==1){
+              showEvery(1)
+          }else if(ind==2){
+              showEvery(2)
+          }else if(ind==3){
+              showEvery(3)
+          }else if(ind==4){
+              showEvery(4)
+          }
+      });
+  }else{
+      $(`[name=${name}]`).each(function(){
+          $(this).prop("checked",false);
+          if(ind==1){
+              hideEvery(1)
+          }else if(ind==2){
+              hideEvery(2)
+          }else if(ind==3){
+              hideEvery(3)
+          }else if(ind==4){
+              hideEvery(4)
+          }
+      });
+  }
+}
+//显示指定图层 摄像头未完全实现
+function showEveryStatus(ind,status){
+   var currentOrgid = $('#mbx_div').find('a:last').attr('id')
+   if(ind==1){
+       console.log(1+'隐藏在线摄像头图层')
+   }else if(ind==2){
+       wgll(currentOrgid,status)
+   }else if(ind==3){
+       zfll(currentOrgid,status)
+   }else if(ind==4){
+       eventall(currentOrgid,status)
+   }
+}
+//去掉全部指定图层
+function hideEvery(ind){
+  var currentOrgid = $('#mbx_div').find('a:last').attr('id')
+  if(ind==1){
+      if(videos!=null){
+          videos.clearLayers();
+          videos=null;
+      }
+      console.log('隐藏监控图层')
+  }else if(ind==2){
+      if(wgllmarkers!=null){
+          wgllmarkers.clearLayers();
+          wgllmarkers=null;
+      };
+      console.log('隐藏网格力量图层')
+  }else if(ind==3){
+      if(zfmarkers!=null){
+          zfmarkers.clearLayers();
+          zfmarkers=null;
+      };
+      console.log(3+'隐藏执法力量图层')
+  }else if(ind==4){
+      if(eventmarkers!=null){
+          eventmarkers.clearLayers();
+          eventmarkers=null;
+      };
+      console.log(4+'隐藏事件图层')
+  }
+}
+//显示全部指定图层
+function showEvery(ind){
+   var currentOrgid = $('#mbx_div').find('a:last').attr('id')
+   if(ind==1){
+       loadData(currentOrgid)
+       console.log(1+'显示摄像头图层')
+   }else if(ind==2){
+       wgll(currentOrgid,'2')
+       console.log(2+'显示网格力量图层')
+   }else if(ind==3){
+       zfll(currentOrgid,'2')
+       console.log(3+'显示执法力量图层')
+   }else if(ind==4){
+       eventall(currentOrgid,'0,1,2')
+       console.log(4+'显示事件图层')
+   }
+}
+showAlllist()
+function showAlllist() {
+  var arr = [1,2,3,4]
+  for (let i = 0; i < arr.length; i++) {
+      let name = 'checkbox'+arr[i];
+      let nameAll = 'checkall'+arr[i];
+      $(`[name=${nameAll}]`).prop("checked",true);
+      $(`[name=${name}]`).prop("checked",true);
+  }
+  //全部选择之后。调用接口
+  var currentOrgid = $('#mbx_div').find('a:last').attr('id')
+}
