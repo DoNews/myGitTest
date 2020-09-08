@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数的原型</title>
+</head>
+
+<body>
+
+    <script>
+        // //创建构造函数
+        // function students(name, age, sex) {
+        //   this.name = name;
+        //   this.age = age;
+        //   this.sex = sex;
+        //   //构造函数实例化对象时，每次实例化一个对象就会开辟一个内存空间。而且对象内部的函数也会单独的开辟一个内存空间
+        //   this.sayHi = function () {
+        //     alert("我的名字叫" + this.name)
+        //   }
+        // }
+        // //实例化一个对象
+        // var s1 = new students("黎明", 29, "男")
+        // //调用对象的方法
+        // s1.sayHi()
+
+        // //实例化一个对象
+        // var s2 = new students("小红", 18, "女")
+        // //调用对象的方法
+        // s2.sayHi()
+
+
+        //为了解决构造函数造成的存储空间被占用的问题。我们
+        //创建构造函数
+        function students(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            //构造函数实例化对象时，每次实例化一个对象就会开辟一个内存空间。而且对象内部的函数也会单独的开辟一个内存空间
+            this.sayHi = sayHi //调用下面的匿名函数
+        }
+
+        function sayHi() {
+            alert("我的名字叫" + this.name)
+        }
+        //实例化一个对象
+        var s1 = new students("黎明", 29, "男")
+            //调用对象的方法
+        s1.sayHi()
+
+        //实例化一个对象
+        var s2 = new students("小红", 18, "女")
+            //调用对象的方法
+        s2.sayHi()
+        console.log(s1.sayHi() == s2.sayHi())
+    </script>
+</body>
+
+</html>

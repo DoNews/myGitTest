@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script type="">
+    var aaa = {
+      name:"asdas",
+      age:19
+    }
+    console.log(aaa.neme);
+    //直接通过对象调用属性的方式来调用。对象属性的内部成员
+    
+    //构造函数
+    function person(name,age) {
+      this.name = name;
+      this.age = age;
+    }
+    //实例成员 通过访问构造函数生成的实例对象访问。这样的成员就是实例成员
+    var p = new person("张三",29)
+    console.log(p.name) 
+    //工厂函数
+    function aa(name,age) {
+      var aa = new Object();
+      aa.name = name;
+      aa.alerts = function () {
+        alert(this.name)
+      }
+      aa.age = age;
+    }
+  </script>
+</body>
+
+</html>

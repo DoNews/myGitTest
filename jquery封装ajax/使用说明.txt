@@ -1,0 +1,38 @@
+http.js是封装的promise对象
+api为接口统一存放位置 
+调用方法：：：
+getLawCaseStatistics( 参数)
+
+// 今日案件接口
+Api 为统一前缀 
+/**
+ * 获取项目路径。加载图片和接口时必须添加。否则服务器会报404 error
+ * @returns {string}
+ */
+function getProjectPath_web() {
+	//获取当前网址，如： http://localhost:8083/project/share/meun.jsp
+	var curWwwPath = window.document.location.href;
+	//获取主机地址之后的目录，如： project/share/meun.jsp
+	var pathName = window.document.location.pathname;
+	var pos = curWwwPath.indexOf(pathName);
+	//获取主机地址，如： http://localhost:8083
+	var localhostPaht = curWwwPath.substring(0, pos);
+	//获取带"/"的项目名，如：/project
+	var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+	if(projectName.indexOf('/gridInfo')>-1)
+		projectName=projectName.replace('/gridInfo','');
+	return (localhostPaht + projectName);
+}
+，参数 发送方法。 请求地址 ， data参数。此处get请求也用data对象，封装的ajax会自动加载到请求地址后面。 超时时间，不设置默认4秒
+function getLawCaseStatistics(orgId){//
+    return axios({
+        method:"post",
+        url: Api+'/commandAndDispatch/getLawCaseStatistics',
+        data: {
+            "orgId" : orgId
+        },
+        timeout:10000
+    })
+}
+
+flexible是自适应ＪＳ、可以使用ｒｅｍ

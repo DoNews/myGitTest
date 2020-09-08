@@ -1,0 +1,17 @@
+       let dataArr = list.map(item => {return item.count}) //遍历循环返回新数组并赋值
+       let xArr = list.map(item => {return item.simplename})//遍历循环返回新数组并赋值
+       重新给option赋值。可以重新setOption({变化的参数对象})
+       myChart1.setOption({
+           xAxis: [{data: xArr}],
+           series: [
+               {
+                   data: dataArr
+               }
+           ]
+       });
+//窗口变化时重载echart图
+window.onresize = function(){
+    myChart1.resize();
+    myChart2.resize();
+    myChart3.resize();
+}

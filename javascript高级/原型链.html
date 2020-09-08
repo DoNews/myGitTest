@@ -9,8 +9,9 @@
 </head>
 
 <body>
-  <h3>
-    实例对象的__proto__ 属性 指向 构造函数的prototype。构造函数的__proto__指向对象Object的prototype,对象的__proto__是指向null</h3>
+  <h3>实例对象的__proto__ 属性 指向构造函数的prototype。构造函数的__proto__指向对象Object的prototype,对象的__proto__是指向null</h3>
+  <h3>构造函数的prototype指向原型的constructor。实例对象的__proto__指向原型的constructor</h3>
+  <h3>对象的构造器就是指向的实例化该对象的构造函数</h3>
   <script>
     // 自定义构造函数，会自动返回一个对象
     function Hero(name, age, bland) {
@@ -33,6 +34,7 @@
     //   console.log('我是基本标签加载好之后就会执行的代码')
     // })
     jQuery(function () {
+
       console.log('sasdas')
     })
   </script>

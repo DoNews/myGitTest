@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h2>函数声明</h2>
+    <h3>函数声明会进行变量函数提升。但是函数表达式不会进行提升</h3>
+    <h3>if语句中的函数不会进行提升</h3>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+      //函数声明
+      aaa()
+
+      function aaa() {
+        console.log('函数声明')
+      }
+      var aaa2
+      //函数表达式
+      aaa2 = function () {
+        console.log('函数表达式')
+      }
+      aaa2()
+    </script>
+  </body>
+</html>

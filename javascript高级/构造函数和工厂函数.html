@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>工厂函数</title>
+  <title>构造函数</title>
 </head>
 
 <body>
@@ -25,14 +25,14 @@
         console.log(this.bland)
       }
     }
-    // 调用构造函数会先创建一个空对象。然后this会指向这个空对象，再然后执行内部代码。返回对象
+    // 调用构造函数会1先创建一个空对象。2然后this会指向这个空对象，3再然后执行内部代码。4返回对象
     var huangzhong = new Hero('huangzhong', 55, '你想试试我的大炮吗')
     // 调用方法
     huangzhong.alertName()
+    console.dir(huangzhong.constructor)
     console.log(huangzhong.constructor === Hero)
     console.log(huangzhong instanceof Hero) //判断某个对象是不是某个对象的实例或者对象
     // 工厂函数。
-
     function news(startTime, endTime, content) {
       var o = new Object();
       o.startTime = startTime;
@@ -40,6 +40,16 @@
       o.content = content;
       return o;
     }
+    //构造函数内容不能用insitanceof判断。但是可以用constructor来判断
+    // 同时创建对象可以使用字面量的形式。也可以使用创建新对象的方式
+    // 比如 下面
+    var add = [];
+    var aaa = new Array();
+    var ass = "";
+    var ass1 = new String();
+    // 这种展示方式是一样的
+    // 可以判断某个对象是不是由指定的构造函数实例化的对象
+    
   </script>
 </body>
 

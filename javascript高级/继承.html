@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+  <h2>js面向对象：1：封装, 2：继承, 3: 多态（强语言类型java）（js中最多算抽象）</h2>
+  <h2>对象的继承是对象与对象之间的</h2>
+  <script>
+    var wjl = {
+      name: '王健林',
+      money: '1000000亿',
+      cars: ["玛莎拉蒂", "兰博基尼"],
+      house: ["大别墅", "亚特兰蒂斯"],
+      play: function () {
+        console.log("嫖娼")
+      }
+    }
+    var wsc = {
+      name: '王思聪',
+      play: function () {
+        console.log("大飘客")
+      }
+    }
+
+    function copyAttribute(parent, child) {
+      for (const key in parent) {
+        if (parent.hasOwnProperty(key)) {
+          if (child.hasOwnProperty(key)) {
+            continue;//两者相同的属性不覆盖
+          }
+          child[key] = parent[key];//不同属性继承过来
+        }
+      }
+      console.dir(child)
+    }
+    copyAttribute(wjl, wsc)
+    wsc.play()
+  </script>
+</body>
+
+</html>

@@ -22,6 +22,25 @@
   <img src="../img/canshu.png" alt="">
 
   <script>
+    var add = [55, 99, 66, 44, 33, 7, 5, 8, 5, 9]
+    function getMaxMinIndex(arr) {
+      var max = arr[0];
+      var min = arr[0];
+      var maxIndex = 0;
+      var minIndex = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (max < arr[i]) {
+          max = arr[i];
+          maxIndex = i
+        }
+        if (min > arr[i]) {
+          min = arr[i];
+          minIndex = i
+        }
+      }
+      return [max, maxIndex, min, minIndex]
+    }
+    getMaxMinIndex(add)
     var str = 'Array',
       arr = [...str]
     // toString()和valueOf()方法是对象共有的属性
@@ -125,8 +144,8 @@
       console.log(params)
       for (let i = 0; i < params.length; i++) {
         const element = params[i];
-        var canshu = element.split('=')
-        o[canshu[0]] = canshu[1]
+        var canshu = element.split('=')//split是将字符串通过特定条件分割成数组
+        o[canshu[0]] = canshu[1] //对象参数定义及赋值
       }
       console.log(o)
       return o

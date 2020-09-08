@@ -1,0 +1,57 @@
+梁溪区：
+    一体化平台
+    网格化联动处置项目
+无锡市：
+   网格化联动处置平台
+   网格治税项目
+   禁毒社工项目
+   公安局110指挥中心
+   公安局门派采集
+宜兴市
+   官林镇一体化平台
+   宜城街道一体化
+惠山区
+   出租房管理项目
+   智慧安镇平台管理
+
+$("#id7").on("change", function () {
+        var s = $('#id7')[0].files[0];
+        var formData = new FormData();
+        var oldName=s.name;//文件原名称
+        var userName = $("#userName").val();
+        var type = oldName.substring(oldName.indexOf(".")+1,oldName.length);
+        var fileType = "mp4,jpg,png,jpeg,MP4,PNG,JPG,JPEG";
+        if(fileType.indexOf(type) == -1){
+        	Feng.error("上传文件只能上传视频和图片,格式为mp4,jpg,png,jpeg");
+        	return false;
+        }
+        
+        formData.append("file", s);
+        formData.append("userName", userName);
+        formData.append("type", "1");
+
+        $.ajax({
+
+            url: updaload_url,
+
+            type: 'POST',
+
+            cache: false,
+
+            data: formData,
+
+            processData: false,
+
+            contentType: false,
+
+            success: function (result) {
+            	console.log(result)        	
+            },
+            error: function (err) {
+
+            }
+
+        });
+
+    });
+ 
